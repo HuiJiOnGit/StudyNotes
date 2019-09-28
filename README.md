@@ -1,1 +1,3 @@
 # StudyNotes
+This is my personal study notes repository!
+Includ Jquery vue ...
