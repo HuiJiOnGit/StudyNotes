@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>29-jQuery事件命名空间</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function(){
+            $('.son').on("click.aa",function () {
+                alert('a');
+            });
+            $('.son').on("click.bb",function () {
+               alert('b');
+            });
+            $('.son').trigger("click.aa");
+        });
+    </script>
+</head>
+<body>
+<div class="father">
+    <div class="son"></div>
+</div>
+<a href="https://www.baidu.com">百度一下</a>
+<form action="post">
+    <input type="text">
+    <input type="submit">
+</form>
+</body>
+</html>

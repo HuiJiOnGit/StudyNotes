@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>16-jquery的attr方法</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function(){
+            /*
+            attr(name|pro|key,val|fn)设置或者获取属性节点
+            如果传递一个参数，代表获取属性节点的值
+            如果传递两个参数，代表设置属性节点的值
+            注意点：
+            如果是获取：无论找到多少个元素，都只会返回第一个元素指定的属性节点的值
+            如果是设置，找到多少个元素就会设置多少个元素
+            如果是设置，如果设置的属性节点不存在，那么系统会自动新增
+            removeAttr(name)删除属性节点
+            只能接受一个参数，但是参数之间空格，可以同时删除多个属性节点
+            prop(n|p|k,v|f)
+            removeProp(name)
+            这两个方法使用基本和arrt一致，但是prop不仅可以操作属性节点，还可以操作属性
+            */
+            console.log($('span').attr('class'));
+            $('span').attr('class','box');
+            $('span').attr('data-sl','myspan');
+            $('span').removeAttr('class');
+            //所以官方推荐操作属性节点是，具有true和false两个属性的属性节点，如checked,selected或者disabled使用prop，其他使用attr
+            console.log($('input').attr('checked'));//checked /undefind
+            console.log($('input').prop('checked'));// true /false
+        });
+    </script>
+</head>
+<body>
+<span class="span1" name="123"></span>
+<span class="span2" name="456"></span>
+<input type="checkbox" checked>
+</body>
+</html>

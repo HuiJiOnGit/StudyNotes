@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>i-vue小栗子</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        #app{
+            margin: 50px auto;
+            width: 600px;
+        }
+        fieldset{
+            border: 2px solid indigo;
+        }
+        fieldset input{
+            width: 200px;
+            height: 30px;
+            margin: 10px 0;
+        }
+        table{
+            width: 600px;
+            border: 2px solid #fd8040;
+            margin-top: 20px;
+        }
+        table thead{
+            background: palevioletred;
+            color: white;
+        }
+        table tbody tr{
+            border-bottom: 2px solid deeppink;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <fieldset>
+        <legend>学生录入</legend>
+        <div>
+            <span>姓名</span>
+            <input type="text" placeholder="请输入姓名" v-model="Student.name"></input>
+        </div>
+        <div>
+            <span>年龄</span>
+            <input type="text" placeholder="请输入年龄" v-model="Student.age"></input>
+        </div>
+        <div>
+            <span>电话</span>
+            <input type="text" placeholder="请输入电话" v-model="Student.phone"></input>
+        </div>
+        <div>
+            <span>性别</span>
+            <select name="" id="" v-model="Student.sex">
+                <option value="boy" selected>男</option>
+                <option value="gril">女</option>
+            </select>
+        </div>
+        <button @click="addStudent()">创建新学生</button>
+    </fieldset>
+    <table>
+        <thead>
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>电话</td>
+            <td>性别</td>
+            <td>删除</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(value,index) in persons">
+            <td>{{value.name}}</td>
+            <td>{{value.age}}</td>
+            <td>{{value.phone}}</td>
+            <td>{{value.sex}}</td>
+            <td>
+                <button @click="removeStudent(index)">删除</button>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            persons: [
+                {name: 'mike', age: '12', phone: '123456787545', sex: '男'},
+                {name: 'madsf', age: '13', phone: '123456787545', sex: '男'},
+                {name: 'mikfhdf', age: '14', phone: '123456787545', sex: '女'},
+                {name: 'mrt', age: '15', phone: '123456787545', sex: '男'},
+                {name: 'masdfge', age: '16', phone: '123456787545', sex: '女'}
+            ],
+            Student:{
+                name:'',
+                age:'9',
+                phone:'',
+                sex:''
+            }
+        },
+        methods:{
+            addStudent() {
+                //添加记录
+                this.persons.unshift(this.Student);
+                this.Student = {name:'',age:'0',phone:'',sex:''};
+            },
+            removeStudent(index){
+                //this.persons.shift(this.Student);
+                this.persons.splice(index,1);
+            }
+        }
+    });
+</script>
+</body>
+</html>

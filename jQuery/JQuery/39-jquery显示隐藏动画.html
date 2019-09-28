@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>39-jquery显示隐藏动画</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            background: red;
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function(){
+             $('button').eq(0).click(function () {
+                 $('div').show(1000,function () {//这里的function是回调函数
+                     alert("show");
+                 });
+             });
+             $('button').eq(1).click(function () {
+                 $('div').hide(1000,function () {
+                     alert("hide");
+                 });
+             });
+             $('button').eq(2).click(function () {
+                 $('div').toggle(1000,function () {
+                     alert("toggle");
+                 });
+             });
+
+        });
+    </script>
+</head>
+<body>
+<button>显示</button>
+<button>隐藏</button>
+<button>切换</button>
+<div></div>
+</body>
+</html>

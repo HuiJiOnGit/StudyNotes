@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery-Hello World</title>
+</head>
+<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script>
+    //原生js
+    window.onload = function(){
+        //get document
+        let img = document.getElementsByTagName("img");
+        console.log(img);
+        //get wicth
+        let width = window.getComputedStyle(img).width;
+        console.log(width);
+    }
+    //jQuery
+    $(document).ready(function(){
+        let $img = $("img");
+        console.log($img);
+        let $width = $img.width();
+        console.log($width);
+    });
+</script>
+<body>
+<img src="https://img4.nga.178.com/ngabbs/head/20171013.jpg" alt="nga">
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-set</title>
+</head>
+<body>
+<script>
+    //创建一个集合
+    let set = new Set(['11','11','12','13']);
+    console.log(set);
+    //y一个属性
+    console.log(set.size);
+
+    //四个方法
+    //add
+    set.add('14').add('15');
+    console.log(set);
+    //delete
+    set.delete('11');
+    console.log(set);
+
+    //das
+    console.log(set.has('12'));
+
+    //keys and values
+    console.log(set.keys());
+    console.log(set.values());
+    //clear
+    set.clear();
+    console.log(set);
+
+
+</script>
+</body>
+</html>

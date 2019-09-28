@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery自动触发事件</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function(){
+                $('.father').click(function () {
+                    alert('father');
+                });
+                //自动触发事件
+            //$('.father').trigger("click");这个辉触发事件冒泡和默认行为
+            //$('.father').triggerHandler("click");//这个不会触发事件冒泡和默认行为
+            $("input[type='submit']").click(function () {
+                alert("submit");
+            });
+            $('a').click(function () {
+                alert('a');
+            });
+            $('a').trigger("click");
+
+        });
+    </script>
+</head>
+<body>
+<div class="father">
+    <div class="son"></div>
+</div>
+<a href="https://www.baidu.com">百度一下</a>
+<form action="post">
+    <input type="text">
+    <input type="submit">
+</form>
+</body>
+</body>
+</html>

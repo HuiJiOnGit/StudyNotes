@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>VUETEST</title>
+</head>
+<body>
+<div id="app">
+    <!--<span>1 + 1 ={{1+1}}</span><br />-->
+    <!--<span>1 + 1 ={{typeof 'dd'}}</span><br />-->
+    <div>
+        <input type="text" v-model="name">
+        <span>你的名字是 {{name}}</span><br />
+    </div>
+    <div>
+        <input type="text" v-model="age">
+        <span>你的年龄是 {{age}}</span><br />
+    </div>
+    <div>
+        <input type="text" v-model="sex">
+        <span v-show="sex">你的性别是 {{sex}}</span><br />
+    </div>
+    <div>
+        <ul>
+            <li v-for="food in foodlist">{{food.name}} 的价格是 ￥{{food.discount ? food.price*food.discount : food.price}}</li>
+        </ul>
+    </div>
+</div>
+<script src="../js/vue.js"></script>
+<script src="../js/my.js"></script>
+</body>
+
+</html>

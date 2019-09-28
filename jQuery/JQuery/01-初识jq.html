@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>初识jQuery</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+    <script>
+        window.onload = function (ex) {
+            $(function () {
+                let d1 = $("div");
+                let d2 = $(".div");
+                let d3 = $("#div");
+                console.log(d1);
+                console.log(d2);
+                console.log(d3);
+
+                d1.css({
+                    background:"red"
+                });
+                d2.css({
+                    background:"yellow"
+                });
+                d3.css({
+                    background:"blue"
+                });
+            })
+        }
+    </script>
+</head>
+<body>
+<div></div>
+<div class="div"></div>
+<div id="div"></div>
+</body>
+</html>

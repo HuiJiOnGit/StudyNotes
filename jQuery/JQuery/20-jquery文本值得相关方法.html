@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery文本值得相关方法</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        /*
+        html([val|fn])
+        和原生js的innerHTML方法一模一样
+        text([val|fn])
+        和原生js的innerTEXT方法一模一样
+        val([val|fn|arr])
+         */
+        $(function(){
+            $('button:eq(0)').click(function () {
+                $('div').html('<p>这是个p<span>这是span</span></p>');
+            });
+            $('button:eq(1)').click(function () {
+                console.log($('div').html());
+            });
+            $('button:eq(2)').click(function () {
+                $('div').text('<p>这是个p<span>这是span</span></p>');
+            });
+            $('button:eq(3)').click(function () {
+                console.log($('div').text());
+            });
+            $('button:eq(4)').click(function () {
+                $('input').val('input的value');
+            });
+            $('button:eq(5)').click(function () {
+                console.log($('input').val());
+            });
+
+        });
+    </script>
+</head>
+<body>
+<button>设置html</button>
+<button>获取html</button>
+<button>设置text</button>
+<button>获取text</button>
+<button>设置value</button>
+<button>获取value</button>
+<div></div>
+<input type="text">
+</body>
+</html>

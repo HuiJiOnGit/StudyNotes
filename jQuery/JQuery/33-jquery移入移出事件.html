@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery移入移出事件</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 300px;
+            height: 300px;
+            background: red;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: fuchsia;
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function(){
+            //mouseover/mouseout这两个，子元素的移入移出也会导致事件触发
+            //  $(".father").mouseover(function () {
+            //      console.log('father移入');
+            //  });
+            // $(".father").mouseout(function () {
+            //     console.log('father移出');
+            // });
+            //这两个的子元素移入移出不会导致事件触发
+            $(".father").mouseenter(function () {
+                console.log('father移入');
+            });
+            $(".father").mouseleave(function () {
+                console.log('father移出');
+            });
+            //如果时两个参数，一个时移入，一个时移出，一参数同时时移入移出
+            $(".father").hover(function () {
+                console.log("come in get out");
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="father">
+    <div class="son">
+    </div>
+</div>
+</body>
+</html>

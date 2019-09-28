@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06-class的基本应用</title>
+</head>
+<body>
+<script>
+    // es6之前声明对象
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype = {
+        constructor :Person,
+        print(){
+            console.log('hello'+ this.name+this.age);
+        }
+    };
+    let person = new Person('mike',20);
+    console.log(person);
+
+
+    //es6通过class声明对象
+    class Animal{
+        constructor(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        print(){
+            console.log('hello'+ this.name+this.age);
+        }
+    }
+    let aninal = new Animal('大象',20);
+    aninal.print();
+</script>
+</body>
+</html>

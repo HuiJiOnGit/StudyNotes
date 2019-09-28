@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>24-jquery事件绑定</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function(){
+            //第一种绑定方法enentName(fn),这种只要jQuery实现了都可以，而且重复写不会覆盖，还可同时添加不同的事件
+            $('button').click(function () {
+                $('.div').css({
+                    width:"100px",
+                    height:"100px",
+                    background:"red"
+                });
+            });
+            $('button').mouseenter(function () {
+                console.log('qwerr');
+            });
+            $('button').mouseleave(function () {
+                console.log('sdfsdfdsf');
+            });
+
+            //第二种绑定方法on(eventName,fn)，只要js有的就行
+            $('button').on("click",function () {
+                console.log("123");
+            });
+            //移除绑定事件
+            //无参数的时候移除所欲事件
+            $('button').off();
+            //一个参数会移除该类型的事件
+            // $('button').off("click");
+            //两个参数会移除指定类型的指定事件
+            // $('button').off("click",test1);
+        });
+    </script>
+</head>
+<body>
+<button>click me</button>
+<div class="div"></div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08-jQuery-each静态方法</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        let arr = [1,2,3,4,5];
+        let obj = {
+            0:1,
+            1:2,
+            2:3,
+            3:4,
+            length:4
+        }
+        /*
+        原生js遍历方法
+        第一个参数：遍历到的元素
+        第二个元素：当前遍历到的索引
+        注意点：原生的js的foreach只能遍历数组，不能遍历伪数组
+        */
+        // arr.forEach(function (value,index){
+        //    console.log(index,value);
+        // });
+        // obj.forEach(function (value,index) {
+        //     console.log(index,value);
+        // });
+        /*
+        jquery的遍历方法
+        第一个参数：当前遍历到的索引
+        第二个参数：遍历到的元素
+        注意点：jQuery的each方法是可以遍历伪数组的
+        */
+        $.each(arr,function (index,value) {
+            console.log(index,value);
+        });
+        $.each(obj,function (index,value) {
+            console.log(index,value);
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

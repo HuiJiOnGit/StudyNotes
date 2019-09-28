@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>34-电影列表练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 300px;
+            height: 500px;
+            border: 2px solid #000;
+            margin:50px auto;
+        }
+        .box h1{
+            color: deeppink;
+            padding-left: 10px;
+            border-bottom: 1px dashed #999999;
+        }
+        ul li{
+            list-style: none;
+            padding: 10px 10px;
+            border-bottom: 1px dashed #cccccc;
+        }
+        ul li span{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: hotpink;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+        }
+        ul li .content{
+            overflow: hidden;
+            margin-top: 5px;
+            display: none;
+        }
+         .content img{
+            width: 71px;
+            height: 120px;
+             float: left;
+             margin-right: 10px;
+        }
+        .content p{
+            width: 199px;
+            height: 120px;
+            float: right;
+            line-height: 14px;
+            font-size: 12px;
+        }
+        .current .content{
+            display: block;
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function() {
+            //第一步监听li的移入
+            $('li').mouseenter(function () {
+                $(this).addClass("current");
+            });
+            $('li').mouseleave(function () {
+                $(this).removeClass("current");
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="box">
+    <h1>电影列表</h1>
+    <ul>
+        <li><span>1</span>电影名称
+            <div class="content">
+                <img src="../img/001.png" alt="">
+                <p>《海绵宝宝3》由派拉蒙影业公司出品，保罗·蒂比特指导，已正式定档将于2019年2月8日在北美上映，中国大陆有望引进。
+                    2015年上映的《海绵宝宝3D》在全球拿下了将近3.16亿美元的票房，仅美国本土就砍下了1.63亿美元，凭借这一傲人的成绩，影片续集上马也是势在必行的，此外，前作导演保罗·蒂比特及配音演员汤姆·肯尼、比尔·法格巴克等人也将悉数回归续作………</p>
+            </div>
+        </li>
+        <li><span>2</span>电影名称
+            <div class="content">
+                <img src="../img/001.png" alt="">
+                <p>《海绵宝宝3》由派拉蒙影业公司出品，保罗·蒂比特指导，已正式定档将于2019年2月8日在北美上映，中国大陆有望引进。
+                    2015年上映的《海绵宝宝3D》在全球拿下了将近3.16亿美元的票房，仅美国本土就砍下了1.63亿美元，凭借这一傲人的成绩，影片续集上马也是势在必行的，此外，前作导演保罗·蒂比特及配音演员汤姆·肯尼、比尔·法格巴克等人也将悉数回归续作………</p>
+            </div>
+        </li>
+        <li><span>3</span>电影名称
+            <div class="content">
+                <img src="../img/001.png" alt="">
+                <p>《海绵宝宝3》由派拉蒙影业公司出品，保罗·蒂比特指导，已正式定档将于2019年2月8日在北美上映，中国大陆有望引进。
+                    2015年上映的《海绵宝宝3D》在全球拿下了将近3.16亿美元的票房，仅美国本土就砍下了1.63亿美元，凭借这一傲人的成绩，影片续集上马也是势在必行的，此外，前作导演保罗·蒂比特及配音演员汤姆·肯尼、比尔·法格巴克等人也将悉数回归续作………</p>
+            </div>
+        </li>
+        <li><span>4</span>电影名称
+            <div class="content">
+                <img src="../img/001.png" alt="">
+                <p>《海绵宝宝3》由派拉蒙影业公司出品，保罗·蒂比特指导，已正式定档将于2019年2月8日在北美上映，中国大陆有望引进。
+                    2015年上映的《海绵宝宝3D》在全球拿下了将近3.16亿美元的票房，仅美国本土就砍下了1.63亿美元，凭借这一傲人的成绩，影片续集上马也是势在必行的，此外，前作导演保罗·蒂比特及配音演员汤姆·肯尼、比尔·法格巴克等人也将悉数回归续作………</p>
+            </div>
+        </li>
+        <li><span>5</span>电影名称
+            <div class="content">
+                <img src="../img/001.png" alt="">
+                <p>《海绵宝宝3》由派拉蒙影业公司出品，保罗·蒂比特指导，已正式定档将于2019年2月8日在北美上映，中国大陆有望引进。
+                    2015年上映的《海绵宝宝3D》在全球拿下了将近3.16亿美元的票房，仅美国本土就砍下了1.63亿美元，凭借这一傲人的成绩，影片续集上马也是势在必行的，此外，前作导演保罗·蒂比特及配音演员汤姆·肯尼、比尔·法格巴克等人也将悉数回归续作………</p>
+            </div>
+        </li>
+        <li><span>6</span>电影名称
+            <div class="content">
+                <img src="../img/001.png" alt="">
+                <p>《海绵宝宝3》由派拉蒙影业公司出品，保罗·蒂比特指导，已正式定档将于2019年2月8日在北美上映，中国大陆有望引进。
+                    2015年上映的《海绵宝宝3D》在全球拿下了将近3.16亿美元的票房，仅美国本土就砍下了1.63亿美元，凭借这一傲人的成绩，影片续集上马也是势在必行的，此外，前作导演保罗·蒂比特及配音演员汤姆·肯尼、比尔·法格巴克等人也将悉数回归续作………</p>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

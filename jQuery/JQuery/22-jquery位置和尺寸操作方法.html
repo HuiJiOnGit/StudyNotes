@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>22-jquery位置和尺寸操作方法</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin: 50px;
+            border: 50px solid #000;
+            position: relative;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: blue;
+            left: 50px;
+            top: 50px;
+            position: absolute;
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function(){
+            //监听设置
+            $('button:first').click(function () {
+                //width和height返回元素的宽高
+                // $('.father').width('400px');
+                // $('.father').height('400px');
+                //innerwidth和innerheight不仅返回宽高，还有内边距padding的值
+                // $('.father').innerWidth('400px');
+                // $('.father').innerHeight('400px');
+                //outer方法返回元素的宽度（包括内边距、边框和外边距）
+                // $('.father').outerWidth(400);
+                // $('.father').outerHeight(400);
+                //获取匹配元素在当前视口的相对偏移。
+                //返回的对象包含两个整型属性：top 和 left，以像素计。此方法只对可见元素有效。
+                $('.son').offset({
+                   left:10
+                });
+
+
+            });
+            //监听获取
+            $('button:last').click(function () {
+                // console.log($('.father').width());
+                // console.log($('.father').height());
+                // console.log($('.father').innerWidth());
+                // console.log($('.father').innerHeight());
+                // console.log($('.father').outerWidth());
+                // console.log($('.father').outerHeight());
+                //offset获取元素距离串口的偏移位
+                console.log($('.son').offset().left);
+                //position获取元素到定位元素的距离
+                //获取匹配元素相对父元素的偏移。
+                //注意点，只能获取，不能设置
+                console.log($('.son').position().left);
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div class="father">
+    <div class="son"></div>
+</div>
+<button>设置</button>
+<button>获取</button>
+</body>
+</html>

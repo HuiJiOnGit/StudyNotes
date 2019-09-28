@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue计算属性</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{now}}</p>
+    <p>原始值  {{msg}}</p>
+    <p>直接调用函数  {{msg.split('').reverse().join('')}}</p>
+    <p>使用封装函数  {{reverseStr()}}</p>
+    <p>计算属性  {{msgReverse}}</p>
+    <p>{{fullName}}</p>
+    <input type="text" v-model="fullName">
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            msg:'今天下大雨',
+            firstName:'san',
+            lastName:'zhang'
+        },
+        methods:{
+            reverseStr:function(){
+                return this.msg.split('').reverse().join('');
+            }
+        },
+        //计算属性
+        computed:{
+            msgReverse:function(){
+                return this.msg.split('').reverse().join('');
+            },
+            now:function () {
+                return Date.now();
+            },
+            fullName:{
+                get:function () {
+                    return this.lastName + this.firstName;
+                },
+                set: function (newValue) {
+                    this.firstName = newValue;
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

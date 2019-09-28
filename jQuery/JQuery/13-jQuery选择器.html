@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery内容选择器</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function(){
+            //:contains(text
+            // :has(selector)
+            //:parent
+            $("#myDiv");//id选择器
+            $("div");//element选择器，查找一个div元素
+            $(".myClass");//class选择器，个用以搜索的类。一个元素可以有多个类，只要有一个符合就能被匹配到。
+            $("*");//匹配所有元素
+            $("div,span,p.myClass");//
+        });
+    </script>
+</head>
+<body>
+<div id="notMe"><p>id="notMe"</p></div>
+<div id="myDiv">id="myDiv"</div>
+<div>DIV1</div>
+<div>DIV2</div>
+<span>SPAN</span>
+<div>div</div>
+<p class="myClass">p class="myClass"</p>
+<span>span</span>
+<p class="notMyClass">p class="notMyClass"</p>
+</body>
+</html>

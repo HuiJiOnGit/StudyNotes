@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery冲突问题</title>
+</head>
+<body>
+<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script>
+    let $ = 123;
+</script>
+<script>
+    //释放$符号
+    jQuery.noConflict();
+    //绑定其他符号
+    let hj = jQuery.noConflict();
+    //jquery的四种入口写法
+    //第一种
+    $(document).ready(function () {
+        //alert('jjjj;');
+    });
+    //第二种
+    jQuery(document).ready(function () {
+        //alert('jjjj;');
+    });
+    //第三种
+    $(function () {
+        //alert('dddd');
+    });
+    //第四种
+    jQuery(function () {
+       alert('ddddd');
+    });
+
+</script>
+</body>
+</html>

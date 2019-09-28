@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery中的其他静态方法</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        //$trim去除字符串两端的空格，返回去除之后的字符串
+        let str = '     str      ';
+        console.log(str);
+        let res = $.trim(str);
+        console.log(res);
+        //判断是否是window对象
+        let w = window;
+        let res1 = $.isWindow(w);
+        console.log(res1);
+        //$.isArray,判断是否是数组
+        let arr = [1,2,3,4];
+        let res2 = $.isArray(arr);
+        console.log(res2);
+        //同理
+        let fun = function () {
+        };
+        console.log($.isFunction(fun));
+        //可以看出jQuery本质就是一个函数而且是一个匿名函数
+        console.log($.isFunction(jQuery));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

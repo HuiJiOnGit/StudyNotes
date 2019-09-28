@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>23-jQuery中的scrolltop方法</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .div{
+            width: 100px;
+            height: 150px;
+            border: 1px solid #000;
+            overflow: auto;
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function(){
+            //获取匹配元素相对滚动条顶部的偏移。
+            // 此方法对可见和隐藏元素均有效。
+            $('button:first').click(function () {
+                console.log($('.div').scrollTop());
+                //如果获取网页的滚动偏移量就要注意ie8以下的写法
+                console.log($('html').scrollTop() + $('body').scrollTop());
+            });
+            $('button:last').click(function () {
+                $('.div').scrollTop(300);
+                //设置同理
+                $('html,body').scrollTop(300);
+            });
+
+        });
+    </script>
+</head>
+<body>
+<button>获取</button>
+<button>设置</button>
+<div class="div">
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+    我是div
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>

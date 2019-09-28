@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>21-jQuery操作css样式的方法</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function(){
+            //第一种写法
+            $('div').css('width','100px');
+            $('div').css('height','100px');
+            $('div').css('background','red');
+            //第二种写法：链式写法
+            $('div').css('width','110px').css('height','110px').css('background','blue');
+            //推荐写法
+            $('div').css({
+                width:"120px",
+                height:"120px",
+                background:"green"
+            });
+        });
+    </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-once>{{message}}</p>
+    <p>{{message}}</p>
+    <p v-if="height>10">this is {{height}}</p>
+    <p v-else="">this is not {{height}}</p>
+    <input type="text" v-model="message">
+
+    <p v-for="(value,index) in list">
+        {{index+1}}.{{value}}
+    </p>
+
+    <p v-for="an in animal">
+        {{an}}
+    </p>
+</div>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            message:'hello world!',
+            height:12,
+            list:['土豆','番茄','茄子'],
+            animal:{
+                name:'dog',
+                age:'1'
+            }
+        }
+    });
+</script>
+</body>
+</html>

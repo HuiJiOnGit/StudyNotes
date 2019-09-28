@@ -1,0 +1,26 @@
+let app = new Vue({
+   el:'#app',
+   data:{
+      name:'小明',
+      age:18,
+      sex:'boy',
+      //foodlist:['番茄','土豆','鸡蛋']
+      foodlist:[
+          {
+             name:'番茄',
+             price:4.3,
+             discount:0.8
+          },
+         {
+             name:'土豆',
+             price:3.4,
+            discount:0.7
+          },
+         {
+             name:'茄子',
+             price:4.5
+            //discount:null
+          }
+          ]
+   }
+});

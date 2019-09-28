@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>sss</p>
+    <bttn></bttn>
+    <blog-post title="1234"></blog-post>
+    <blog-post
+            v-for="post in posts"
+            v-bind:key="post.id"
+            v-bind:title="post.title"
+    ></blog-post>
+</div>
+<div id="app2">
+<part></part>
+    <inp></inp>
+    <father></father>
+    <!--通过标签注册组件-->
+    <!--<template id="temp">-->
+        <!--<div>hello</div>-->
+    <!--</template>-->
+    <!--<script>-->
+        <!--//实例化组件-->
+        <!--Vue.component({-->
+            <!--template:'#temp'-->
+        <!--});-->
+        <!--new Vue({-->
+            <!--el:'#app'-->
+        <!--});-->
+    <!--</script>-->
+</div>
+<script type="text/template" alt="" width="200px">
+    <div>hello</div>
+</script>
+<script>
+
+    // 定义一个名为 button-counter 的新组件
+    Vue.component('bttn', {
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+    });
+    //全局组件
+    //每个组件的html只能有一个根元素
+    Vue.component('blog-post', {
+        props: ['title'],
+        template:'<div class="blog-post">\n' +
+            '  <h3>{{ title }}</h3>\n' +
+            '</div>'
+
+    });
+    //组件一定要比vue实列先定义
+    new Vue({
+        el:"#app",
+        data:{
+            posts: [
+                { id: 1, title: 'My journey with Vue' },
+                { id: 2, title: 'Blogging with Vue' },
+                { id: 3, title: 'Why Vue is so fun'}
+            ]
+        }
+    });
+   let part = Vue.extend({
+        template:`<div>
+                       <p>局部组件</p>
+                       <input type="date" />
+                   </div>`
+    });
+   //父子组件
+    let child1 = Vue.extend({
+        template:`
+            <div>
+                <img src="../img/002.jpg" height="108" width="192"/>
+            </div>
+        `
+    });
+    let child2 = Vue.extend({
+        template:`
+            <div>
+                <p>very good!!</p>
+            </div>
+        `
+    });
+    Vue.component('father',{
+        components: {
+            'child1':child1,
+            'child2':child2
+        },
+        data:function(){
+          return {
+              message : 'this is message'
+          }
+        },
+        template:`<div>
+                        <child1></child1>
+                        <child2></child2>
+                        <p>父组件</p>
+                        <p>{{message}}</p>
+                   </div>`
+    });
+    new Vue({
+        el:"#app2",
+        components:{
+            //局部组件
+            'part':part,
+            'inp':{
+                template:'<div><input type="color"></div>'
+            }
+        }
+    });
+ </script>
+</body>
+</html>

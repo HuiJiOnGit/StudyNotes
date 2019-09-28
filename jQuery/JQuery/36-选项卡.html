@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>36-选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .box{
+            width: 576px;
+            height: 374px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            position:relative;
+        }
+        .nav{
+            width: 576px;
+            height: 50px;
+            /*background: #ffffff;*/
+            position: relative;
+        }
+        .nav li{
+            width: 115.2px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            /*background: hsla(0,0%,100%,.4);*/
+            background: #707070;
+            float: left;
+        }
+        .nav .current{
+            background: #C2C2C2;
+        }
+        .content{
+            width: 576px;
+            height: 324px;
+        }
+        .content li{
+            display:none;
+        }
+        .content li img{
+            width: 576px;
+            height: 324px;
+        }
+        .content .show{
+            display: block;
+        }
+        .title{
+            width: 576px;
+            height: 30px;
+            background: hsla(0,0%,100%,.4);
+            overflow: hidden;
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+        }
+        .title li{
+            height: 30px;
+            text-align: left;
+            line-height: 30px;
+            color: whitesmoke;
+            float: left;
+            display: none;
+        }
+        .trig{
+            width: 130px;
+            height: 20.4px;
+            position: absolute;
+            right: 0px;
+            bottom: 3px;
+        }
+        .trig li{
+            display: block;
+            width: 18px;
+            height: 18px;
+            background-image: url(../img/icons.png);
+            background-position: -855px -790px;
+            background-color: transparent;
+            transparent:none;
+            border-radius: 50%;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 8px;
+        }
+        .title .on,.trig .on{
+            display: block;
+        }
+        .box .trig .icon{
+            background-position: -855px -727px;
+            /*background: blue;*/
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function(){
+             // $('.nav li').mouseenter(function () {
+             //     $(this).addClass('current');
+             //     //1.2获取当前选项卡的索引
+             //     let index = $(this).index();
+             //     //根据索引找到对应的图片
+             //     let $img = $('.content li').eq(index);
+             //     //显示图片
+             //     $img.addClass('show');
+             //
+             // });
+             // $('.nav li').mouseleave(function () {
+             //     $(this).removeClass('current');
+             //     //1.2获取当前选项卡的索引
+             //     let index = $(this).index();
+             //     //根据索引找到对应的图片
+             //     let $img = $('.content li').eq(index);
+             //     //显示图片
+             //     $img.removeClass('show');
+             // });
+            $('.nav li').mouseenter(function () {
+                $(this).addClass('current');
+                //找到兄弟元素
+                $(this).siblings().removeClass('current');
+                //1.2获取当前选项卡的索引
+                let index = $(this).index();
+                //根据索引找到对应的图片
+                let $img = $('.content li').eq(index);
+                let title = $('.title li').eq(index);
+                let icon = $('.trig li').eq(index);
+                //显示图片
+                $img.siblings().removeClass('show');
+                $img.addClass('show');
+                title.siblings().removeClass('on');
+                title.addClass('on');
+                icon.siblings().removeClass('icon');
+                icon.addClass('icon');
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul class="nav">
+        <li>主站</li>
+        <li>音频</li>
+        <li>游戏中心</li>
+        <li>直播</li>
+        <li>漫画</li>
+    </ul>
+    <ul class="content">
+        <li class="show"><img src="../img/002.jpg" alt=""></li>
+        <li><img src="../img/003.jpg" alt=""></li>
+        <li><img src="../img/004.jpg" alt=""></li>
+        <li><img src="../img/005.jpg" alt=""></li>
+        <li><img src="../img/006.jpg" alt=""></li>
+    </ul>
+    <ul class="title">
+        <li class="on">
+            <p>孤独的美食家 全七季 B站独播</p>
+        </li>
+        <li>
+            <p>恭喜IG拿下LPL季赛冠军</p>
+        </li>
+        <li>
+            <p>他们都很危险</p>
+        </li>
+        <li>
+            <p>宫廷升职指南</p>
+        </li>
+        <li>
+            <p>在春寒料峭的冷风中建议成长</p>
+        </li>
+    </ul>
+    <ul class="trig">
+        <li class="icon"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>

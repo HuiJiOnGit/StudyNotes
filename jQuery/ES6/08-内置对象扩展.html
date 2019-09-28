@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内置对象扩展</title>
+</head>
+<body>
+<ul>
+    <li>div1</li>
+    <li>div1</li>
+    <li>div1</li>
+    <li>div1</li>
+    <li>div1</li>
+</ul>
+<script>
+    //模板字符串
+    let class1 = 'myClass';
+    let str = `
+            <div class="${class1}">
+                <p>goodmorming</p>
+                <p>${class1}</p>
+            </div>`;
+    //console.log(str);
+
+    //数组的扩展
+    //Array.form 将伪数组转成数组
+    let list = document.querySelectorAll('li');
+    // console.log(list);
+    // console.log(Array.isArray(list));
+    // console.log(Array.from(list));
+    // console.log(Array.isArray(Array.from(list)));
+    //Array.of 将一些零零散散的转成数组
+    //console.log(Array.of('1', '2', '3'));
+//对象的扩展
+    let name = 'jion';
+    let age = 12;
+    let obj = {
+        // 'name' : name,
+        // 'age':age
+        //可以用以下写法代替,key 和value是一样的，写一个就行
+        name,
+        age
+    };
+    console.log(obj);
+
+    //合并
+    let obj1 = {name:'mike'};
+    let obj2 = {age:44};
+    let obj3 = {sex:'boy'};
+    console.log(Object.assign(obj1, obj2,obj3));
+
+    //延展操作符
+    let str1 = 'today is sunday';
+    let strArr1 = [...str1];
+    console.log(strArr1);
+
+    let strArr2 = [1,2,3,4,1,1,1,1];
+    console.log([...new Set(strArr2)]);
+</script>
+</body>
+</html>

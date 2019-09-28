@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery中的holdready静态方法</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $.holdReady(true);
+        $(document).ready(function () {
+            alert('ready');
+        });
+    </script>
+</head>
+<body>
+<button>click</button>
+<script>
+    let btn = document.getElementsByTagName("button")[0];
+    btn.onclick = function () {
+        alert('btn');
+        $.holdReady(false);
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        table{
+            width: 600px;
+            border: 3px solid orange;
+            text-align: center;
+        }
+        thead{
+            background-color: #fd8040;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <table>
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>性别</td>
+            </tr>
+        </thead>
+        <tbody>
+        <tr v-for="p in persons">
+            <td>{{p.name}}</td>
+            <td>{{p.age}}</td>
+            <td>{{p.sex}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            persons:[
+                {name:'john',age:'12',sex:'boy'},
+                {name:'mike',age:'13',sex:'boy'},
+                {name:'dddg',age:'15',sex:'girl'}
+                ]
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind and v-on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .select{
+            font-size: 20px;
+            background-color: #31c27c;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <p v-for="(value,index) in classlist" :class="index === activeIndex ? active : ''" :alt="altmsg">
+        {{value}}
+    </p>
+    <!--<img :src="aaa" alt="altmsg">-->
+    <p :style="{color:pStyle}">{{msg}}</p>
+    <button v-on:click="msg = 'wwww'">chage</button>
+    <button @click="changeContent()">chage2</button>
+</div>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            classlist:['.NET.Core','.NET','c#','JavaScript'],
+            aaa:'../img/001.png',
+            active:'select',
+            altmsg:'nihao',
+            activeIndex:1,
+            pStyle:'green',
+            msg:'fweerw'
+        },
+        methods:{
+            //实例函数的实现
+            changeContent(){
+                this.msg = '哈哈哈哈';
+                this.pStyle = 'pink';
+            }
+        }
+    });
+</script>
+</body>
+</html>

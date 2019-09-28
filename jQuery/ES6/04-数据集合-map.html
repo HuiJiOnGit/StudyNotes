@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>map</title>
+</head>
+<body>
+
+<script>
+/*    let obj = {a:1},obj1={b:2},obj2={};
+    console.log(obj);
+    obj.name= "张三";
+    obj[obj1] = "sea";
+    obj[obj2] = "sky";
+    console.log(obj1.toString() === obj2.toString())
+    console.log(obj);*/
+
+    const map = new Map();
+    console.log(map);
+
+    let obj = {a:1},obj1={b:2};
+    const map1 = new Map([
+        ['name','100'],
+        ['sex','boy'],
+        ['age','18'],
+        [obj,'hello'],
+        [obj1,'hi'],
+        [[1,2],'345'],
+        ['name','101'],
+        ['sex','girl']
+    ]);
+    //console.log(map1);
+
+    //get
+    //console.log(map1.get('age'));
+
+    //set
+    map1.set('age','19');
+    //console.log(map1);
+    //delete
+    map1.delete('[1,2]');
+    //console.log(map1.get('[1,2]'));
+
+    //Mapiterator构造器
+    //console.log(map1.keys());
+
+    //遍历
+    map1.forEach(function (value, key) {
+        console.log(key+  + value);
+    });
+
+    console.log({}==={});
+</script>
+</body>
+</html>
