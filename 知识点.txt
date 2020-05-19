@@ -1,0 +1,90 @@
+1.泛型
+	.framework2.0以后推出，是一种算法重用机制，可以让程序员在代码中使用类型占位符，将变量 或者参数的类型代替，在使用的时候传入具体的类型
+2.开放类型跟封闭类型
+	开放类型：程序员定义的泛型类--开放类型
+	封闭类型:实际使用的时候，会根据传入的类型，生成新的类，这个类就叫做---封闭类型
+3.泛型约束
+	默认的泛型什么类型都可以往里面传
+	为了能够进行约束
+	基类约束：    public class AnimalPerson<T> where T : Person
+		只能传person,跟pserson的子类
+	接口约束：    public class WhitePerson<T> where T : IWhite, ISpeakEnglish
+		只能传实现了接口的类
+	引用类型约束：public class PS<T> where T : class
+		只能传应用类型,string
+	值类型约束：  public class PS<T> where T : struct
+		只能传值类型 int,bool
+	构造器约束    public class PS3<T> where T:Iwork,where T:new()
+		如果我们需要在泛型类的内部使用new关键字创建T类型的变量，就必须使用构造器约束
+		default(类型) 返回默认值
+	注意如果要写多个约束，逗号隔开，注意构造器约束只能写在最后
+4.泛型方法
+	普通类，跟泛型类内部都可以定义泛型方法
+	泛型方法必须要有类型占位符 public void InT<T>(){}
+	泛型占位符的试用位置
+		方法的形参:public void InT<T>(T t){}
+		方法的返回值:public T InT<T>(T t){}
+	注意,如果在方法中需要使用new关键字创建T类型的变量 必须添加构造器约束,跟泛型类的加法一样
+	如果想要返回T类型的默认值 使用default(类型) 就可以返回某个类型的默认值
+5.泛型方法的重载
+	1.方法的形参个数不同
+	2.方法的形参类型不同
+	3.注意点:类型占位符个数不同,也能构成重载
+5.5.优化缓存工具类
+	 //存入数据
+        public static void AddObj(string cacheKey, object value)
+        {
+            HttpRuntime.Cache[cacheKey] = value;
+        } //使用泛型优化
+        public static T GetDateBetter<T> (string cacheKey) where T:class
+        {
+            //return (T)HttpRuntime.Cache[cacheKey];//把返回值进行转型
+            return HttpRuntime.Cache[cacheKey] as T;
+        }
+		注意 如果想要使用 as来进行转换 就必须加 应用类型约束
+6.协变和逆变
+	适用情况
+		只能用在泛型接口跟泛型委托里面
+		泛型类跟泛型方法里面不能用
+	协变
+		关键字为Out
+			做用是标示此类型占位符,不能作为参数输入,必须作为返回值输出
+	逆变
+		关键字为in
+			做用是标示此类型占位符,只能作为参数输入,而不能作为返回值输出
+	
+7.创建一个类的是否要传入类型参数,取决于这个类是否是泛型类,跟这个类的父类没有任何关系
+
+//-----------------分割线---------------
+新语法
+01.自动属性
+02.隐式类型
+	var关键字,只能用在方法的内部(只能用在局部变量的声明中)
+	必须在创建的时候就赋值,要确定类型
+	必须声明隐式类型的时候,就能够确认类型,否则报错
+		比如null
+	确定类型以后,不能改为其他类型,
+		子类,父类是ok的
+	只需要看=右边 就能够确定类型
+
+《C# 本质论》《深入理解C#》《CLR via C#》
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
