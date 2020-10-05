@@ -1,0 +1,1 @@
+# dotnet core 3.1在控制台使用依赖注入，logger和configuration
